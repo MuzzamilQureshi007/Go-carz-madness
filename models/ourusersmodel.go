@@ -80,12 +80,14 @@ func (m *UsersModel) Create(users *entities.Users) error {
 
 func (m *UsersModel) Update(users entities.Users) error {
 
-	_, err := m.db.Exec("update users set name = ?, email = ? , username = ? , password = ? , roll = ? , where id = ?",
+	_, err := m.db.Exec("update users set name = ?, email = ? , username = ? , password = ? , roll = ? where id = ?",
 		users.Name,
 		users.Username,
 		users.Email,
 		users.Password,
-		users.Roll)
+		users.Roll,
+		users.Id,
+	)
 
 	if err != nil {
 		return err

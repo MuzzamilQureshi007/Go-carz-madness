@@ -35,7 +35,7 @@
           </div>
           <div class="modal-footer">
             {{ if .users.Id }}
-            <input type="hidden" name="id" value="{{ .users.Id }}">
+            <input type="hidden" name="id" id="id" value="{{ .users.Id }}">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Change Data</button>
             {{else}}
