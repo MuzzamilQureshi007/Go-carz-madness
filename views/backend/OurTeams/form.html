@@ -1,0 +1,58 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ .title }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="form-angles" action="/manage-teams/store" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+            <div class="form-group">
+               <label for="">Designation</label>
+               <input id="designation" type="text" name="designation" value="{{ .teams.Designation }}" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="">Name</label>
+                <input id="name" type="text" name="name" value="{{ .teams.Name  }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">detail</label>
+                <input id="detail" type="text" name="detail" value="{{ .teams.Detail  }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">Facebook</label>
+                <input id="facebook" type="text" name="facebook" value="{{ .teams.Facebook  }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">github</label>
+                <input type="text" id="github" name="github" value="{{ .teams.Github  }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">dropbox</label>
+                <input type="text" id="dropbox" name="dropbox"  value="{{ .teams.Dropbox }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">twitter</label>
+                <input type="text" id="twitter" name="twitter"  value="{{ .teams.Twitter }}" class="form-control">
+             </div>
+             <div class="form-group">
+                <label for="">Image</label>
+                <input id="file" type="file" name="image"  value="{{ .teams.Image }}" class="form-control">
+            </div> 
+            <div>
+               <img src="../../../static/uploads/{{ .teams.Image }}" alt="{{ .teams.Image }}">
+            </div>
+             
+          </div>
+          <div class="modal-footer">
+            {{ if .teams.Id }}
+            <input type="hidden" id="id" name="id" value="{{ .teams.Id }}">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Change Data</button>
+            {{else}}
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save Data</button>
+            {{end}}
+          </div>
+      </form>
+    </div>
+  </div>
